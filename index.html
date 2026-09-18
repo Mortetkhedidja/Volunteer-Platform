@@ -1,0 +1,2369 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>منصة المتطوع الرقمية</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Cairo',sans-serif;
+    background:#f5f6f4;
+    color:#17202a;
+    overflow-x:hidden;
+}
+
+:root{
+    --navy:#071b32;
+    --navy2:#0b2947;
+    --green:#145c3d;
+    --green2:#1c7650;
+    --gold:#c99a35;
+    --gold-light:#e4c46c;
+    --cream:#f7f3e7;
+    --white:#ffffff;
+    --gray:#697681;
+}
+
+button,
+input,
+textarea{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+nav{
+    height:76px;
+    background:rgba(255,255,255,.97);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 20px rgba(0,0,0,.08);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-size:20px;
+    font-weight:800;
+    color:var(--navy);
+    cursor:pointer;
+}
+
+.logo-icon{
+    width:43px;
+    height:43px;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--navy),var(--green));
+    color:var(--gold-light);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    border:1px solid var(--gold);
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#53616d;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:var(--green);
+}
+
+.nav-btn{
+    background:var(--navy);
+    color:white;
+    border:1px solid var(--gold);
+    padding:10px 19px;
+    border-radius:10px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.nav-btn:hover{
+    background:var(--green);
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:620px;
+    padding:85px 8%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+
+    background:
+        radial-gradient(circle at 15% 25%,rgba(201,154,53,.13),transparent 30%),
+        radial-gradient(circle at 85% 80%,rgba(20,92,61,.12),transparent 30%),
+        linear-gradient(135deg,#f7f9f7,#edf3ef);
+}
+
+.hero-text{
+    max-width:650px;
+}
+
+.badge{
+    display:inline-block;
+    background:#e8efe9;
+    color:var(--green);
+    padding:7px 16px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:18px;
+    border:1px solid #d5e3da;
+}
+
+.hero h1{
+    font-size:51px;
+    line-height:1.35;
+    margin-bottom:20px;
+    color:var(--navy);
+}
+
+.hero h1 span{
+    color:var(--green);
+}
+
+.hero p{
+    color:#687581;
+    font-size:18px;
+    line-height:2;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.primary{
+    background:linear-gradient(135deg,var(--navy),var(--navy2));
+    color:white;
+    padding:14px 27px;
+    border:1px solid var(--gold);
+    border-radius:12px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(7,27,50,.18);
+}
+
+.secondary{
+    background:white;
+    color:var(--green);
+    padding:14px 27px;
+    border:1px solid #cbdcd3;
+    border-radius:12px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.secondary:hover{
+    border-color:var(--gold);
+}
+
+/* =====================================================
+   HERO PROFILE
+===================================================== */
+
+.hero-card{
+    width:410px;
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 20px 55px rgba(7,27,50,.12);
+    border-top:4px solid var(--gold);
+}
+
+.profile-top{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.avatar{
+    width:62px;
+    height:62px;
+    border-radius:18px;
+    background:#e7eee9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    border:1px solid #d4dfd9;
+}
+
+.profile-name{
+    font-weight:800;
+    color:var(--navy);
+}
+
+.level{
+    color:var(--green);
+    font-size:13px;
+    font-weight:700;
+}
+
+.progress-title{
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.progress{
+    height:10px;
+    background:#e7ece9;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:60%;
+    height:100%;
+    background:linear-gradient(90deg,var(--green),var(--gold));
+    border-radius:20px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:25px;
+}
+
+.stat{
+    background:#f7f9f8;
+    padding:15px;
+    border-radius:14px;
+    text-align:center;
+    border:1px solid #edf0ee;
+}
+
+.stat strong{
+    display:block;
+    font-size:23px;
+    color:var(--green);
+}
+
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
+
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title h2{
+    font-size:32px;
+    color:var(--navy);
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#78838c;
+}
+
+/* =====================================================
+   CATEGORIES
+===================================================== */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.category{
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    cursor:pointer;
+    transition:.25s;
+    border:1px solid #e9eeeb;
+}
+
+.category:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(7,27,50,.09);
+    border-color:#d9c079;
+}
+
+.category-icon{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.category h3{
+    margin-bottom:7px;
+    color:var(--navy);
+}
+
+.category p{
+    color:#7b858c;
+    font-size:14px;
+}
+
+/* =====================================================
+   ACTIVITIES
+===================================================== */
+
+.activities{
+    background:#eef3f0;
+}
+
+.activity-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.activity{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 4px 18px rgba(0,0,0,.04);
+    border:1px solid #e8ecea;
+}
+
+.activity-image{
+    height:150px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:55px;
+    background:
+        linear-gradient(135deg,#0b2947,#145c3d);
+}
+
+.activity-body{
+    padding:22px;
+}
+
+.activity-body h3{
+    margin-bottom:10px;
+    color:var(--navy);
+}
+
+.activity-body p{
+    color:#75808a;
+    font-size:14px;
+    line-height:1.8;
+}
+
+.activity-info{
+    display:flex;
+    justify-content:space-between;
+    color:#66727b;
+    font-size:13px;
+    margin:15px 0;
+}
+
+.join{
+    width:100%;
+    border:1px solid var(--gold);
+    background:var(--green);
+    color:white;
+    padding:11px;
+    border-radius:9px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.join:hover{
+    background:var(--navy);
+}
+
+/* =====================================================
+   JOURNEY
+===================================================== */
+
+.journey{
+    background:white;
+}
+
+.journey-container{
+    max-width:950px;
+    margin:auto;
+}
+
+.timeline{
+    display:flex;
+    justify-content:space-between;
+    position:relative;
+    margin-top:50px;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    top:30px;
+    left:8%;
+    right:8%;
+    height:4px;
+    background:#dfe8e3;
+    z-index:0;
+}
+
+.step{
+    position:relative;
+    z-index:1;
+    text-align:center;
+    width:22%;
+}
+
+.step-icon{
+    width:60px;
+    height:60px;
+    margin:auto;
+    border-radius:50%;
+    background:white;
+    border:4px solid #dfe8e3;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+}
+
+.step.active .step-icon{
+    border-color:var(--gold);
+    background:#f8f2df;
+}
+
+.step h4{
+    margin-top:12px;
+    color:var(--navy);
+}
+
+.step p{
+    color:#78838c;
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+.dashboard{
+    background:#eef3f0;
+}
+
+.dashboard-box{
+    max-width:1000px;
+    margin:auto;
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 10px 35px rgba(0,0,0,.05);
+    border-top:4px solid var(--gold);
+}
+
+.dashboard-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.user-info{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.small-avatar{
+    width:55px;
+    height:55px;
+    background:#e5eee8;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+}
+
+.dashboard-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.d-stat{
+    padding:20px;
+    background:#f8faf9;
+    border-radius:15px;
+    border:1px solid #edf0ee;
+}
+
+.d-stat span{
+    display:block;
+    color:#7b858c;
+    font-size:13px;
+}
+
+.d-stat strong{
+    display:block;
+    color:var(--green);
+    font-size:27px;
+    margin-top:5px;
+}
+
+/* =====================================================
+   INITIATIVE
+===================================================== */
+
+.initiative{
+    background:white;
+}
+
+.initiative-box{
+    max-width:900px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.initiative-text h2{
+    font-size:32px;
+    margin-bottom:15px;
+    color:var(--navy);
+}
+
+.initiative-text p{
+    color:#75808a;
+    line-height:2;
+}
+
+.initiative-form{
+    background:#f6f8f7;
+    padding:25px;
+    border-radius:20px;
+    border:1px solid #e2e9e5;
+}
+
+.input{
+    width:100%;
+    padding:12px;
+    border:1px solid #dce3df;
+    border-radius:9px;
+    margin-bottom:12px;
+    outline:none;
+    background:white;
+}
+
+.input:focus{
+    border-color:var(--gold);
+}
+
+textarea.input{
+    height:100px;
+    resize:none;
+}
+
+.success{
+    display:none;
+    background:#e4f4ec;
+    color:var(--green);
+    padding:15px;
+    border-radius:10px;
+    margin-top:10px;
+}
+
+/* =====================================================
+   DIGITAL CARD
+===================================================== */
+
+.card-section{
+    background:
+        radial-gradient(circle at 10% 20%,rgba(201,154,53,.10),transparent 30%),
+        #eef3f0;
+}
+
+/* البطاقة */
+
+.volunteer-card{
+    width:min(850px,100%);
+    min-height:430px;
+    margin:auto;
+    position:relative;
+    overflow:hidden;
+
+    border-radius:25px;
+
+    color:white;
+
+    background:
+        radial-gradient(circle at 50% 45%,rgba(25,70,105,.45),transparent 35%),
+        linear-gradient(135deg,#06172a,#092544 65%,#071a2d);
+
+    border:3px solid var(--gold);
+
+    box-shadow:
+        0 25px 60px rgba(7,27,50,.25),
+        inset 0 0 0 2px rgba(255,255,255,.08);
+
+    padding:30px 38px;
+}
+
+/* زخارف البطاقة */
+
+.volunteer-card::before{
+    content:"";
+    position:absolute;
+    width:430px;
+    height:170px;
+    top:-80px;
+    left:-80px;
+    border-radius:50%;
+    border:16px solid rgba(201,154,53,.8);
+    transform:rotate(-20deg);
+}
+
+.volunteer-card::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:150px;
+    bottom:-100px;
+    right:-80px;
+    border-radius:50%;
+    border:16px solid rgba(201,154,53,.8);
+    transform:rotate(-15deg);
+}
+
+/* خطوط ذهبية */
+
+.card-decoration{
+    position:absolute;
+    inset:12px;
+    border:1px solid rgba(228,196,108,.45);
+    border-radius:18px;
+    pointer-events:none;
+}
+
+.card-top{
+    position:relative;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:28px;
+}
+
+.card-brand{
+    text-align:right;
+}
+
+.card-brand small{
+    display:block;
+    color:#d7c48a;
+    font-size:12px;
+}
+
+.card-brand h2{
+    color:#f0d27c;
+    font-size:25px;
+    margin-top:3px;
+}
+
+.card-logo{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    border:2px solid var(--gold-light);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    background:rgba(255,255,255,.03);
+}
+
+/* محتوى البطاقة */
+
+.card-main{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:190px 1fr;
+    gap:35px;
+    align-items:center;
+}
+
+.card-photo{
+    width:170px;
+    height:205px;
+    border-radius:12px;
+    background:#e9e9e9;
+    border:3px solid var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#4b5560;
+    font-size:55px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+.card-data{
+    display:grid;
+    gap:11px;
+}
+
+.card-field{
+    display:grid;
+    grid-template-columns:160px 1fr;
+    align-items:center;
+    min-height:38px;
+    background:linear-gradient(90deg,rgba(255,255,255,.94),rgba(241,241,241,.92));
+    color:#17202a;
+    border-radius:9px;
+    padding:4px 13px;
+    font-size:14px;
+}
+
+.card-field strong{
+    color:#1b2835;
+}
+
+.card-field span{
+    font-weight:700;
+    color:#162433;
+}
+
+.card-number{
+    letter-spacing:2px;
+    font-weight:800;
+}
+
+/* أسفل البطاقة */
+
+.card-bottom{
+    position:relative;
+    z-index:2;
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-top:24px;
+}
+
+.card-institution{
+    font-size:17px;
+    font-weight:800;
+    color:#fff;
+}
+
+.card-institution span{
+    color:#e5c66c;
+}
+
+.card-status{
+    background:rgba(20,92,61,.8);
+    border:1px solid var(--gold);
+    padding:7px 14px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+.qr{
+    width:78px;
+    height:78px;
+    background:
+        linear-gradient(90deg,#111 10%,transparent 10% 20%,#111 20% 30%,transparent 30% 40%,#111 40% 55%,transparent 55% 65%,#111 65% 80%,transparent 80%),
+        linear-gradient(#111 10%,transparent 10% 20%,#111 20% 35%,transparent 35% 50%,#111 50% 65%,transparent 65% 80%,#111 80%);
+    background-color:white;
+    border:5px solid white;
+    border-radius:4px;
+}
+
+/* =====================================================
+   VERIFICATION
+===================================================== */
+
+.verification{
+    background:white;
+}
+
+.verify-box{
+    max-width:850px;
+    margin:auto;
+    padding:35px;
+    background:#f6f8f7;
+    border-radius:22px;
+    border:1px solid #e1e9e4;
+    text-align:center;
+}
+
+.verify-icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.verify-box h3{
+    color:var(--navy);
+    margin-bottom:10px;
+}
+
+.verify-box p{
+    color:#75808a;
+    line-height:1.9;
+}
+
+.verify-result{
+    display:none;
+    margin-top:20px;
+    padding:18px;
+    background:#e4f4ec;
+    color:var(--green);
+    border-radius:12px;
+    font-weight:700;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    background:var(--navy);
+    color:white;
+    padding:45px 8%;
+    text-align:center;
+    border-top:3px solid var(--gold);
+}
+
+footer strong{
+    color:#e8ca70;
+    font-size:19px;
+}
+
+footer p{
+    color:#b5c6be;
+    margin-top:8px;
+    font-size:14px;
+}
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.58);
+    z-index:2000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal-content{
+    background:white;
+    width:90%;
+    max-width:500px;
+    border-radius:20px;
+    padding:30px;
+    position:relative;
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+}
+
+.close{
+    position:absolute;
+    left:20px;
+    top:15px;
+    cursor:pointer;
+    font-size:25px;
+    color:#555;
+}
+
+.modal-content h2{
+    margin-bottom:15px;
+    color:var(--navy);
+}
+
+.modal-content p{
+    color:#687581;
+    line-height:2;
+    margin-bottom:20px;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1000px){
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-text{
+        max-width:800px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .activity-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .card-main{
+        grid-template-columns:160px 1fr;
+    }
+}
+
+@media(max-width:800px){
+
+    nav{
+        padding:0 5%;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .dashboard-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .initiative-box{
+        grid-template-columns:1fr;
+    }
+
+    .timeline{
+        flex-direction:column;
+        gap:25px;
+    }
+
+    .timeline::before{
+        display:none;
+    }
+
+    .step{
+        width:100%;
+    }
+
+    .card-main{
+        grid-template-columns:1fr;
+    }
+
+    .card-photo{
+        margin:auto;
+    }
+
+    .card-data{
+        width:100%;
+    }
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:60px 5%;
+    }
+
+    .hero{
+        padding:60px 5%;
+    }
+
+    .hero h1{
+        font-size:37px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .hero-card{
+        width:100%;
+    }
+
+    .categories{
+        grid-template-columns:1fr;
+    }
+
+    .activity-grid{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard-stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .dashboard-header{
+        flex-direction:column;
+        gap:20px;
+        align-items:flex-start;
+    }
+
+    .volunteer-card{
+        padding:25px 18px;
+        min-height:auto;
+    }
+
+    .card-top{
+        gap:15px;
+    }
+
+    .card-brand h2{
+        font-size:20px;
+    }
+
+    .card-logo{
+        width:60px;
+        height:60px;
+        font-size:27px;
+    }
+
+    .card-field{
+        grid-template-columns:1fr;
+        gap:2px;
+        padding:7px 10px;
+    }
+
+    .card-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+    <div class="logo" onclick="scrollToSection('home')">
+        <div class="logo-icon">🤝</div>
+        منصة المتطوع
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a onclick="scrollToSection('home')">
+                الرئيسية
+            </a>
+        </li>
+
+        <li>
+            <a onclick="scrollToSection('categories')">
+                مجالات التطوع
+            </a>
+        </li>
+
+        <li>
+            <a onclick="scrollToSection('activities')">
+                فرص التطوع
+            </a>
+        </li>
+
+        <li>
+            <a onclick="scrollToSection('journey')">
+                مساري
+            </a>
+        </li>
+
+        <li>
+            <a onclick="scrollToSection('initiative')">
+                مبادرتي
+            </a>
+        </li>
+
+    </ul>
+
+    <button class="nav-btn"
+            onclick="scrollToSection('dashboard')">
+
+        ملفي التطوعي
+
+    </button>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <span class="badge">
+            منصة رقمية لتشجيع الشباب على التطوع
+        </span>
+
+        <h1>
+            هويتك الرقمية
+            <span>لمسارك التطوعي.</span>
+        </h1>
+
+        <p>
+            منصة تجمع الشباب بالفرص التطوعية المناسبة لهم،
+            وتوثق مشاركاتهم وأعمالهم، وتساعدهم على تطوير
+            مسارهم من متطوع جديد إلى سفير للتطوع.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="primary"
+                    onclick="scrollToSection('activities')">
+                اكتشف فرص التطوع
+            </button>
+
+            <button class="secondary"
+                    onclick="scrollToSection('journey')">
+                اكتشف مساري التطوعي
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="hero-card">
+
+        <div class="profile-top">
+
+            <div class="avatar">
+                👤
+            </div>
+
+            <div>
+
+                <div class="profile-name">
+                    أحمد محمد
+                </div>
+
+                <div class="level">
+                    متطوع متوسط
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-title">
+
+            <span>
+                تقدمك التطوعي
+            </span>
+
+            <strong>
+                12 / 20
+            </strong>
+
+        </div>
+
+
+        <div class="progress">
+
+            <div class="progress-fill"></div>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong>12</strong>
+                أعمال تطوعية
+            </div>
+
+            <div class="stat">
+                <strong>36</strong>
+                ساعة تطوع
+            </div>
+
+            <div class="stat">
+                <strong>3</strong>
+                مبادرات
+            </div>
+
+            <div class="stat">
+                <strong>2</strong>
+                شارات
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CATEGORIES
+===================================================== -->
+
+<section id="categories">
+
+    <div class="section-title">
+
+        <h2>
+            اختر مجال مساهمتك
+        </h2>
+
+        <p>
+            اكتشف الأنشطة التي تناسب اهتماماتك ومهاراتك
+        </p>
+
+    </div>
+
+
+    <div class="categories">
+
+
+        <div class="category"
+             onclick="filterActivities('جامعي')">
+
+            <div class="category-icon">
+                🎓
+            </div>
+
+            <h3>
+                جامعي وأكاديمي
+            </h3>
+
+            <p>
+                التعليم، التوجيه، الأنشطة الجامعية
+            </p>
+
+        </div>
+
+
+        <div class="category"
+             onclick="filterActivities('اقتصادي')">
+
+            <div class="category-icon">
+                💼
+            </div>
+
+            <h3>
+                اقتصادي وريادة الأعمال
+            </h3>
+
+            <p>
+                المشاريع، المقاولاتية، التكوين
+            </p>
+
+        </div>
+
+
+        <div class="category"
+             onclick="filterActivities('تقني')">
+
+            <div class="category-icon">
+                💻
+            </div>
+
+            <h3>
+                علمي وتقني
+            </h3>
+
+            <p>
+                التكنولوجيا، البرمجة، الابتكار
+            </p>
+
+        </div>
+
+
+        <div class="category"
+             onclick="filterActivities('ثقافي')">
+
+            <div class="category-icon">
+                🎨
+            </div>
+
+            <h3>
+                ثقافي وإبداعي
+            </h3>
+
+            <p>
+                الفنون، الإعلام، صناعة المحتوى
+            </p>
+
+        </div>
+
+
+        <div class="category"
+             onclick="filterActivities('بيئي')">
+
+            <div class="category-icon">
+                🌱
+            </div>
+
+            <h3>
+                بيئي
+            </h3>
+
+            <p>
+                التشجير، النظافة، حماية البيئة
+            </p>
+
+        </div>
+
+
+        <div class="category"
+             onclick="filterActivities('اجتماعي')">
+
+            <div class="category-icon">
+                🤝
+            </div>
+
+            <h3>
+                اجتماعي وتضامني
+            </h3>
+
+            <p>
+                المبادرات الاجتماعية والتضامن
+            </p>
+
+        </div>
+
+
+        <div class="category"
+             onclick="filterActivities('رياضي')">
+
+            <div class="category-icon">
+                ⚽
+            </div>
+
+            <h3>
+                رياضي وسياحي
+            </h3>
+
+            <p>
+                الرياضة، الرحلات والفعاليات
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ACTIVITIES
+===================================================== -->
+
+<section class="activities"
+         id="activities">
+
+    <div class="section-title">
+
+        <h2>
+            فرص التطوع
+        </h2>
+
+        <p>
+            اختر نشاطًا وابدأ أول خطوة في مسارك التطوعي
+        </p>
+
+    </div>
+
+
+    <div class="activity-grid"
+         id="activityGrid">
+
+
+        <div class="activity"
+             data-category="بيئي">
+
+            <div class="activity-image">
+                🌱
+            </div>
+
+            <div class="activity-body">
+
+                <h3>
+                    حملة تشجير
+                </h3>
+
+                <p>
+                    شارك في مبادرة لتحسين المساحات الخضراء
+                    والمحيط السكني.
+                </p>
+
+                <div class="activity-info">
+
+                    <span>
+                        📍 المؤسسة الشبابية
+                    </span>
+
+                    <span>
+                        👥 20
+                    </span>
+
+                </div>
+
+                <button class="join"
+                        onclick="joinActivity('حملة التشجير')">
+
+                    أشارك
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="activity"
+             data-category="تقني">
+
+            <div class="activity-image">
+                💻
+            </div>
+
+            <div class="activity-body">
+
+                <h3>
+                    ورشة التكنولوجيا والذكاء الاصطناعي
+                </h3>
+
+                <p>
+                    ساهم في تنظيم ورشة رقمية لفائدة الشباب.
+                </p>
+
+                <div class="activity-info">
+
+                    <span>
+                        📍 المؤسسة الشبابية
+                    </span>
+
+                    <span>
+                        👥 15
+                    </span>
+
+                </div>
+
+                <button class="join"
+                        onclick="joinActivity('ورشة التكنولوجيا')">
+
+                    أشارك
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="activity"
+             data-category="ثقافي">
+
+            <div class="activity-image">
+                🎨
+            </div>
+
+            <div class="activity-body">
+
+                <h3>
+                    معرض المواهب الشبابية
+                </h3>
+
+                <p>
+                    ساهم في تنظيم معرض لإبراز مواهب الشباب.
+                </p>
+
+                <div class="activity-info">
+
+                    <span>
+                        📍 دار الشباب
+                    </span>
+
+                    <span>
+                        👥 25
+                    </span>
+
+                </div>
+
+                <button class="join"
+                        onclick="joinActivity('معرض المواهب')">
+
+                    أشارك
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     JOURNEY
+===================================================== -->
+
+<section class="journey"
+         id="journey">
+
+    <div class="section-title">
+
+        <h2>
+            مسارك التطوعي
+        </h2>
+
+        <p>
+            كل مشاركة تقربك خطوة من رتبة جديدة
+        </p>
+
+    </div>
+
+
+    <div class="journey-container">
+
+        <div class="timeline">
+
+
+            <div class="step active">
+
+                <div class="step-icon">
+                    🪪
+                </div>
+
+                <h4>
+                    5 أعمال
+                </h4>
+
+                <p>
+                    بطاقة المتطوع
+                </p>
+
+            </div>
+
+
+
+            <div class="step active">
+
+                <div class="step-icon">
+                    🥉
+                </div>
+
+                <h4>
+                    10 أعمال
+                </h4>
+
+                <p>
+                    متطوع متوسط
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    🏅
+                </div>
+
+                <h4>
+                    15 عمل
+                </h4>
+
+                <p>
+                    متطوع متقدم
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    🏆
+                </div>
+
+                <h4>
+                    20 عمل
+                </h4>
+
+                <p>
+                    سفير التطوع
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section class="dashboard"
+         id="dashboard">
+
+    <div class="section-title">
+
+        <h2>
+            ملفي التطوعي
+        </h2>
+
+        <p>
+            تابع مشاركاتك وأثرك وتقدمك
+        </p>
+
+    </div>
+
+
+    <div class="dashboard-box">
+
+        <div class="dashboard-header">
+
+            <div class="user-info">
+
+                <div class="small-avatar">
+                    👤
+                </div>
+
+                <div>
+
+                    <strong>
+                        أحمد محمد
+                    </strong>
+
+                    <div class="level">
+                        متطوع متوسط
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button class="secondary"
+                    onclick="showCard()">
+
+                🪪 عرض بطاقتي
+
+            </button>
+
+        </div>
+
+
+        <div class="dashboard-stats">
+
+            <div class="d-stat">
+
+                <span>
+                    الأعمال المعتمدة
+                </span>
+
+                <strong>
+                    12
+                </strong>
+
+            </div>
+
+
+            <div class="d-stat">
+
+                <span>
+                    الساعات التطوعية
+                </span>
+
+                <strong>
+                    36
+                </strong>
+
+            </div>
+
+
+            <div class="d-stat">
+
+                <span>
+                    المبادرات
+                </span>
+
+                <strong>
+                    3
+                </strong>
+
+            </div>
+
+
+            <div class="d-stat">
+
+                <span>
+                    الشارات
+                </span>
+
+                <strong>
+                    2
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INITIATIVE
+===================================================== -->
+
+<section class="initiative"
+         id="initiative">
+
+    <div class="initiative-box">
+
+
+        <div class="initiative-text">
+
+            <span class="badge">
+                شارك بفكرتك
+            </span>
+
+            <h2>
+                لديك مبادرة؟
+            </h2>
+
+            <p>
+                لا تكتفِ بالمشاركة.
+                اقترح مبادرتك الخاصة وساهم في صناعة
+                أثر إيجابي في مجتمعك.
+            </p>
+
+        </div>
+
+
+
+        <div class="initiative-form">
+
+            <input class="input"
+                   id="initiativeName"
+                   placeholder="اسم المبادرة">
+
+
+            <input class="input"
+                   placeholder="اختر المجال">
+
+
+            <textarea class="input"
+                      placeholder="صف فكرتك..."></textarea>
+
+
+            <button class="primary"
+                    style="width:100%"
+                    onclick="submitInitiative()">
+
+                إرسال المبادرة للجنة
+
+            </button>
+
+
+            <div class="success"
+                 id="successMessage">
+
+                ✓ تم إرسال المبادرة بنجاح إلى لجنة المتابعة.
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DIGITAL VOLUNTEER CARD
+===================================================== -->
+
+<section class="card-section"
+         id="card-section">
+
+    <div class="section-title">
+
+        <h2>
+            بطاقة المتطوع الرقمية
+        </h2>
+
+        <p>
+            الهوية الرقمية للمتطوع داخل المنصة
+        </p>
+
+    </div>
+
+
+
+    <div class="volunteer-card">
+
+        <div class="card-decoration"></div>
+
+
+        <!-- أعلى البطاقة -->
+
+        <div class="card-top">
+
+            <div class="card-brand">
+
+                <small>
+                    المؤسسة الشبابية
+                </small>
+
+                <h2>
+                    بطاقة التطوع
+                </h2>
+
+            </div>
+
+
+            <div class="card-logo">
+                🤝
+            </div>
+
+        </div>
+
+
+
+        <!-- بيانات البطاقة -->
+
+        <div class="card-main">
+
+
+            <div class="card-photo">
+                👤
+            </div>
+
+
+
+            <div class="card-data">
+
+
+                <div class="card-field">
+
+                    <strong>
+                        الاسم الكامل :
+                    </strong>
+
+                    <span>
+                        أحمد محمد
+                    </span>
+
+                </div>
+
+
+
+                <div class="card-field">
+
+                    <strong>
+                        تاريخ الميلاد :
+                    </strong>
+
+                    <span>
+                        2004/05/18
+                    </span>
+
+                </div>
+
+
+
+                <div class="card-field">
+
+                    <strong>
+                        تاريخ الإصدار :
+                    </strong>
+
+                    <span>
+                        2026/09/01
+                    </span>
+
+                </div>
+
+
+
+                <div class="card-field">
+
+                    <strong>
+                        تاريخ الانتهاء :
+                    </strong>
+
+                    <span>
+                        2027/09/01
+                    </span>
+
+                </div>
+
+
+
+                <div class="card-field">
+
+                    <strong>
+                        الرقم التسلسلي :
+                    </strong>
+
+                    <span class="card-number">
+                        VOL-000000
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- أسفل البطاقة -->
+
+        <div class="card-bottom">
+
+
+            <div>
+
+                <div class="card-institution">
+                    مؤسسة شبابية :
+                    <span>دار شباب ماسرة</span>
+                </div>
+
+                <div class="card-status">
+                    ✓ بطاقة متطوع مفعلة
+                </div>
+
+            </div>
+
+
+            <div class="qr"
+                 title="رمز التحقق من البطاقة">
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VERIFICATION
+===================================================== -->
+
+<section class="verification">
+
+    <div class="section-title">
+
+        <h2>
+            التحقق من بطاقة المتطوع
+        </h2>
+
+        <p>
+            التحقق من صحة بيانات بطاقة المتطوع الرقمية
+        </p>
+
+    </div>
+
+
+    <div class="verify-box">
+
+        <div class="verify-icon">
+            🔐
+        </div>
+
+        <h3>
+            نظام التحقق الرقمي
+        </h3>
+
+        <p>
+            يمكن للمؤسسة التحقق من رقم المتطوع
+            وحالة البطاقة والبيانات الأساسية للمتطوع.
+        </p>
+
+
+        <br>
+
+
+        <input class="input"
+               id="verifyNumber"
+               placeholder="أدخل الرقم التسلسلي للبطاقة">
+
+
+        <button class="primary"
+                onclick="verifyCard()">
+
+            التحقق من البطاقة
+
+        </button>
+
+
+        <div class="verify-result"
+             id="verifyResult">
+
+            ✓ البطاقة صحيحة ومفعلة
+            <br>
+            المتطوع: أحمد محمد
+            <br>
+            الرقم: VOL-000000
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <strong>
+        منصة المتطوع الرقمية
+    </strong>
+
+    <p>
+        تطوع • وثّق • تطوّر • اصنع أثرًا
+    </p>
+
+    <p>
+        مؤسسة شبابية : دار شباب ماسرة
+    </p>
+
+    <p>
+        نموذج أولي للمشروع
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div class="modal"
+     id="modal">
+
+    <div class="modal-content">
+
+        <span class="close"
+              onclick="closeModal()">
+            ×
+        </span>
+
+        <h2 id="modalTitle">
+            العنوان
+        </h2>
+
+        <p id="modalText">
+        </p>
+
+        <button class="primary"
+                onclick="closeModal()">
+
+            حسناً
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function scrollToSection(id){
+
+    const element =
+        document.getElementById(id);
+
+    if(element){
+
+        element.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+function showModal(title,text){
+
+    document.getElementById("modalTitle")
+        .innerText = title;
+
+    document.getElementById("modalText")
+        .innerText = text;
+
+    document.getElementById("modal")
+        .style.display = "flex";
+
+}
+
+
+function closeModal(){
+
+    document.getElementById("modal")
+        .style.display = "none";
+
+}
+
+
+
+/* =====================================================
+   JOIN ACTIVITY
+===================================================== */
+
+function joinActivity(activity){
+
+    showModal(
+        "تم تسجيل اهتمامك ✓",
+        "تم تسجيل رغبتك في المشاركة في " +
+        activity +
+        ". سيتم تأكيد مشاركتك من خلال المنصة."
+    );
+
+}
+
+
+
+/* =====================================================
+   FILTER ACTIVITIES
+===================================================== */
+
+function filterActivities(category){
+
+    scrollToSection("activities");
+
+    const cards =
+        document.querySelectorAll(".activity");
+
+    cards.forEach(card => {
+
+        if(card.dataset.category === category){
+
+            card.style.display = "block";
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+
+/* =====================================================
+   INITIATIVE
+===================================================== */
+
+function submitInitiative(){
+
+    const name =
+        document.getElementById("initiativeName").value;
+
+    if(name.trim() === ""){
+
+        showModal(
+            "تنبيه",
+            "يرجى إدخال اسم المبادرة أولاً."
+        );
+
+        return;
+
+    }
+
+    document.getElementById(
+        "successMessage"
+    ).style.display = "block";
+
+}
+
+
+
+/* =====================================================
+   SHOW CARD
+===================================================== */
+
+function showCard(){
+
+    scrollToSection("card-section");
+
+}
+
+
+
+/* =====================================================
+   VERIFY CARD
+===================================================== */
+
+function verifyCard(){
+
+    const number =
+        document.getElementById("verifyNumber").value.trim();
+
+    if(number === ""){
+
+        showModal(
+            "تنبيه",
+            "يرجى إدخال الرقم التسلسلي للبطاقة."
+        );
+
+        return;
+
+    }
+
+    if(number.toUpperCase() === "VOL-000000"){
+
+        document.getElementById(
+            "verifyResult"
+        ).style.display = "block";
+
+    }else{
+
+        showModal(
+            "لم يتم العثور على البطاقة",
+            "تأكد من إدخال الرقم التسلسلي الصحيح."
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+===================================================== */
+
+document.getElementById("modal")
+.addEventListener("click",function(e){
+
+    if(e.target === this){
+
+        closeModal();
+
+    }
+
+});
+
+</script>
+
+
+</body>
+</html>
